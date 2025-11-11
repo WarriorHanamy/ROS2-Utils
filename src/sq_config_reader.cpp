@@ -8,7 +8,7 @@
 namespace sq_config_reader
 {
     std::vector<double> SQLiteConfigReader::parse_csv(
-        const std::string& csv_str)
+        const std::string &csv_str)
     {
         std::vector<double> result;
         std::stringstream   ss(csv_str);
@@ -20,12 +20,12 @@ namespace sq_config_reader
             {
                 result.push_back(std::stod(item));
             }
-            catch (const std::invalid_argument& e)
+            catch (const std::invalid_argument &e)
             {
                 std::cerr << "Invalid argument in CSV data: " << item
                           << std::endl;
             }
-            catch (const std::out_of_range& e)
+            catch (const std::out_of_range &e)
             {
                 std::cerr << "Out of range value in CSV data: " << item
                           << std::endl;
@@ -35,22 +35,21 @@ namespace sq_config_reader
         return result;
     }
 
-    SQLiteConfigReader::SQLiteConfigReader(const std::string& db_name,
-                                           const std::string& tbl_name)
+    SQLiteConfigReader::SQLiteConfigReader(const std::string &db_name,
+                                           const std::string &tbl_name)
         : db(nullptr),
           stmt(nullptr),
           database_name(db_name),
           table_name(tbl_name)
     {
-        const char* tailsitter_planning_dir =
-            std::getenv("TAILSITTER_PLANNING_DIR");
-        if (!tailsitter_planning_dir)
+        const char *AP_PNC_DIR = std::getenv("AP_PNC_DIR");
+        if (!AP_PNC_DIR)
         {
             throw std::runtime_error(
-                "TAILSITTER_PLANNING_DIR environment variable is not set.");
+                "AP_PNC_DIR environment variable is not set.");
         }
 
-        db_file = std::string(tailsitter_planning_dir) + "/" + database_name;
+        db_file = std::string(AP_PNC_DIR) + "/" + database_name;
 
         if (!std::filesystem::exists(db_file))
         {
