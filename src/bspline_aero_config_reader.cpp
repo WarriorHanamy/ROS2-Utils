@@ -9,7 +9,7 @@ namespace sq_config_reader
         constexpr int default_bspline_degree = 3;
         constexpr int default_diff_between_knots_size_and_coefs_size =
             default_bspline_degree + 1;
-        constexpr const char* DB_FILENAME = "meta_params.db";
+        constexpr const char* DB_FILENAME = "aero_sim_params.db";
         constexpr const char* TABLE_NAME  = "bspline_aero_config";
         // TODO reflections: automatically generate the column names from the
         // base class `BSplineStructure`

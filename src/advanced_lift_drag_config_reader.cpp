@@ -5,7 +5,7 @@ namespace sq_config_reader
 {
     namespace
     {
-        constexpr const char* DB_FILENAME = "meta_params.db";
+        constexpr const char* DB_FILENAME = "aero_sim_params.db";
         constexpr const char* TABLE_NAME  = "advanced_lift_drag_config";
 
         // Column names

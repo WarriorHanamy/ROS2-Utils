@@ -5,7 +5,7 @@ namespace sq_config_reader
 {
     namespace
     {
-        constexpr const char* DB_FILENAME             = "meta_params.db";
+        constexpr const char* DB_FILENAME             = "aero_sim_params.db";
         constexpr const char* TABLE_NAME              = "phi_aero_config";
         constexpr size_t      phi_matrix_flatten_size = 9;
 
