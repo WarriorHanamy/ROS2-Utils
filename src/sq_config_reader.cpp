@@ -42,14 +42,14 @@ namespace sq_config_reader
           database_name(db_name),
           table_name(tbl_name)
     {
-        const char *AP_PNC_DIR = std::getenv("AP_PNC_DIR");
-        if (!AP_PNC_DIR)
+        const char *AERO_SIM_DATA_DIR = std::getenv("AERO_SIM_DATA_DIR");
+        if (!AERO_SIM_DATA_DIR)
         {
             throw std::runtime_error(
-                "AP_PNC_DIR environment variable is not set.");
+                "AERO_SIM_DATA_DIR environment variable is not set.");
         }
 
-        db_file = std::string(AP_PNC_DIR) + "/" + database_name;
+        db_file = std::string(AERO_SIM_DATA_DIR) + "/" + database_name;
 
         if (!std::filesystem::exists(db_file))
         {
